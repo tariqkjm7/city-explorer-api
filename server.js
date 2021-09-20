@@ -30,8 +30,8 @@ server.get('/weather', (request, response) => {
 
 
     let cityName = request.query.cityName
-    console.log(request.query);
-    console.log(request.query.cityName);
+    //    console.log(request.query);
+    //    console.log(request.query.cityName);
 
     let weatherinfo = weatherData.find((item) => {
 
@@ -62,3 +62,5 @@ server.listen(PORT, () => {
 
     console.log(`from PORT ${PORT}`);
 })
+
+// 
