@@ -1,6 +1,6 @@
 'use strict';
 const weatherData = require('./asseets/weather.json')
-
+const cors = require('cors');
 class City {
 
     constructor(date,description) {
@@ -16,7 +16,7 @@ const express = require('express');
 
 const server = express();
 console.log(weatherData);
-
+server.use(cors());
 
 const PORT = 3001;
 
@@ -41,10 +41,17 @@ server.get('/weather', (request, response) => {
             return item
         }
     })
+    console.log('111111111',weatherinfo);
     // let newCity = weatherinfo.city_name
-    weatherinfo.city_name = new City(weatherinfo.country_code,weatherinfo.data[2].datetime)
-    response.send( weatherinfo.city_name);
-    console.log(newCity);
+    let city = weatherinfo.data.map(element =>{
+
+       return new City(element.datetime,element.weather.description)
+
+    });
+
+    
+    response.send( city);
+    // console.log(newCity);
 
 })
 
