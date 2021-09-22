@@ -31,7 +31,7 @@ server.get('/weather', (request, response) => {
 
     let cityName = request.query.cityName
     //    console.log(request.query);
-    //    console.log(request      .query.cityName);
+    //    console.log(request.query.cityName);
 
     let weatherinfo = weatherData.find((item) => {
 
@@ -41,7 +41,7 @@ server.get('/weather', (request, response) => {
             return item
         }
     })
-    console.log('111111111',weatherinfo);
+    console.log('11111111111',weatherinfo);
     // let newCity = weatherinfo.city_name
     let city = weatherinfo.data.map(element =>{
 
@@ -51,7 +51,7 @@ server.get('/weather', (request, response) => {
 
     
     response.send( city);
-    // console.log(newCity);
+    
 
 })
 
