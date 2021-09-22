@@ -30,13 +30,9 @@ server.get('/weather', (request, response) => {
 
 
     let cityName = request.query.cityName
-    //    console.log(request.query);
-    //    console.log(request.query.cityName);
-
-
+   console.log(weatherData);
     let weatherinfo = weatherData.find((item) => {
 
-        // if( item === weatherData.city_name){}
         if (item.city_name === cityName) {
 
             return item
